@@ -1,0 +1,12 @@
+{
+  "access_key": "<access_key>",
+  "secret_key": "<secret_key>",
+  "bucket": "static",
+  "src": "./dist/",
+  "upload": [
+    "./static/**",
+    "favicon.ico"
+  ],
+  "dest": "/<project name>/",
+  "parallel": 10
+}

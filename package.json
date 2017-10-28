@@ -1,0 +1,36 @@
+{
+  "name": "multiple-pages-showcase",
+  "version": "1.0.0",
+  "description": "前端多页开发模板",
+  "private": true,
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "browser-sync start -c bs-config.js",
+    "build": "coolie build",
+    "release": "npm run build && 7niu upload"
+  },
+  "keywords": [
+    "coolie",
+    "multiple-page",
+    "nunjucks"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "7niu": "^3.0.0",
+    "browser-sync": "^2.18.13",
+    "coolie.js": "^2.2.3",
+    "node-sass": "^4.5.3",
+    "nunjucks": "^3.0.1"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "author": "郑贤森<zhengxiansen1993@gmail.com>",
+  "license": "MIT"
+}

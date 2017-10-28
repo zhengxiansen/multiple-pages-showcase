@@ -1,0 +1,18 @@
+<!-- Twitter -->
+<meta name="twitter:card" content="{% if page.title %}summary{% else %}summary_large_image{% endif %}">
+<meta name="twitter:site" content="@{{ site.twitter }}">
+<meta name="twitter:creator" content="@{{ site.twitter }}">
+<meta name="twitter:title" content="{{ page.title or site.title }}">
+<meta name="twitter:description" content="{{ page.description or site.description }}">
+<meta name="twitter:image" content="{% if page.title %}{{ site.social_logo_path }}{% else %}{{ site.social_image_path }}{% endif %}">
+
+<!-- Facebook -->
+<meta property="og:url" content="{{ page.url }}">
+<meta property="og:title" content="{{ page.title  or site.title }}">
+<meta property="og:description" content="{{ page.description or site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ site.social_image_path }}">
+<meta property="og:image:secure_url" content="{{ site.social_image_path }}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
