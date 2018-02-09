@@ -1,0 +1,27 @@
+{
+  "accessKeyId": "your_accessKeyId",
+  "accessKeySecret": "your_accessKeySecret",
+  // 仓库
+  "bucket": "your_bucket",
+  // OSS 所在的域
+  "host": "oss-cn-hangzhou.aliyuncs.com",
+  // 待上传资源的源目录，相当于`alioss.json`所在的目录
+  "src": "./dist",
+  // 上传的文件列表，支持通配符，相对于 src
+  "upload": [
+    "./static/**",
+    "favicon.ico"
+  ],
+  // 上传的 CDN 目录
+  "dest": "/static/",
+  // 并行上传数量，默认10
+  "parallel": 10,
+  // 缓存控制
+  "cacheControl": "public",
+  // 缓存有效期
+  "expires": 31536000,
+  // 默认文件类型
+  "contentType": "application/octect-stream",
+  // 是否 https 访问
+  "https": true
+}

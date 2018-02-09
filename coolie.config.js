@@ -11,25 +11,16 @@
  * =======================================================
  */
 
-'use strict';
+'use strict'
 
-const path = require('path');
-const config = require('./config');
-
-const assetsSubDirectory = config.build.assetsSubDirectory;
-const viewDirs = config.dev.view.root;
-
-function resolve(dir, _path){
-  // coolie 不支持绝对路径
-  return path.relative(__dirname, path.join(dir, _path))
-}
+const path = require('path')
+const config = require('./config')
+const coolieView = require('./plugins/coolie-view')
+const coolieBabel = require('./plugins/coolie-babel')
 
 module.exports = function (coolie) {
   // coolie 配置
   coolie.config({
-    // 是否在构建之前清空目标目录
-    clean: true,
-
     // 目标配置
     dest: {
       // 目标目录，相对于当前文件
@@ -40,14 +31,25 @@ module.exports = function (coolie) {
       versionLength: 32
     },
 
+    // 是否在构建之前清空目标目录
+    clean: true,
+
+    // html 构建
+    html: {
+      // html 文件，相对于当前文件
+      src: 'views/**/*.html',
+      // html 压缩配置
+      minify: true
+    },
+
     // js 构建
     js: {
       // 入口模块，相对于当前文件
-      main: [].concat(viewDirs).map(dir => resolve(dir, '**/*.js')),
+      main: 'views/**/*.js',
       // coolie-config.js 路径，相对于当前文件
       'coolie-config.js': './coolie-config.js',
       // js 文件保存目录，相对于 dest.dirname
-      dest: path.join(assetsSubDirectory, 'js/'),
+      dest: path.join(config.build.assetsSubDirectory, 'js/'),
       // 分块配置
       chunk: [],
       // js 压缩配置
@@ -58,18 +60,10 @@ module.exports = function (coolie) {
       }
     },
 
-    // html 构建
-    html: {
-      // html 文件，相对于当前文件
-      src: [].concat(viewDirs).map(dir => resolve(dir, '**/*.html')),
-      // html 压缩配置
-      minify: true
-    },
-
     // css 构建
     css: {
       // css 文件保存目录，相对于 dest.dirname
-      dest: path.join(assetsSubDirectory, 'css/'),
+      dest: path.join(config.build.assetsSubDirectory, 'css/'),
       // css 压缩配置
       minify: true
     },
@@ -77,19 +71,21 @@ module.exports = function (coolie) {
     // 资源
     resource: {
       // 资源保存目录，相对于 dest.dirname
-      dest: path.join(assetsSubDirectory, 'res/'),
+      dest: path.join(config.build.assetsSubDirectory, 'res/'),
       // 是否压缩
       minify: true
     },
 
     // 原样复制文件，相对于当前文件
     copy: [
-      'favicon.ico',
-      'robots.txt'
+      './favicon.ico',
+      './robots.txt'
     ]
-  });
+  })
 
-  // 使用 nunjucks 中间件编译HTML
-  // 加入开发时候需要，生产不需要，那可以直接注释掉
-  coolie.use(require('./_middleware/coolie-nunjucks'));
-};
+  // 添加 babel 中间件
+  coolie.use(coolieBabel())
+
+  // 使用模板编译 HTML
+  if (config.dev.view) coolie.use(coolieView(config.dev.view))
+}

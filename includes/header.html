@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="{{ page.description or site.description }}">
+<meta name="author" content="{{ site.authors }}">
+
+<title>
+  {% if page.title %}
+  {{ page.title }} · {{ site.title }}
+  {% else %}
+  {{ site.title }} · {{ site.description }}
+  {% endif %}
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/static/css/bootstrap.css" rel="stylesheet">
+
+{% if page.layout == "docs" %}
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+{% endif %}
+
+<!-- Documentation extras -->
+<link href="/static/css/docs.min.css" rel="stylesheet">
+
+{% include "favicons.html" %}
+
+{% include "social.html" %}
+

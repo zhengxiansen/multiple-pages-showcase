@@ -1,26 +1,52 @@
 {
   "name": "multiple-pages-showcase",
-  "version": "1.0.0",
-  "description": "前端多页开发模板",
+  "version": "1.0.1",
   "private": true,
+  "description": "前端多页开发模板",
   "scripts": {
     "start": "npm run dev",
-    "dev": "browser-sync start -c bs-config.js",
-    "build": "coolie build",
-    "release": "npm run build && 7niu upload"
+    "dev": "browser-sync start -c ./bs.config.js",
+    "build": "coolie build --config ./coolie.config.js",
+    "7niu": "7niu upload",
+    "alioss": "alioss upload",
+    "release": "git add ./dist/ && git commit -am 'release' && git push",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "e2e": "node test/e2e/runner.js",
+    "test": "npm run unit && npm run e2e"
   },
   "keywords": [
     "coolie",
-    "multiple-page",
+    "multiple pages",
     "nunjucks"
   ],
   "dependencies": {},
   "devDependencies": {
     "7niu": "^3.0.0",
+    "alioss": "^3.0.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.2.0",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
     "browser-sync": "^2.18.13",
+    "bs-html-injector": "^3.0.3",
+    "chromedriver": "^2.35.0",
+    "coolie": "^2.2.5",
     "coolie.js": "^2.2.3",
-    "node-sass": "^4.5.3",
-    "nunjucks": "^3.0.1"
+    "cross-spawn": "^6.0.4",
+    "http-proxy-middleware": "^0.17.4",
+    "jest": "^22.2.1",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coolie": "^2.0.2",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.1",
+    "nightwatch": "^0.9.19",
+    "nunjucks": "^3.0.1",
+    "selenium-server": "^3.9.1"
   },
   "engines": {
     "node": ">= 6.0.0",
@@ -31,6 +57,6 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "author": "郑贤森<zhengxiansen1993@gmail.com>",
+  "author": "郑贤森<zhengxs423@gmail.com>",
   "license": "MIT"
 }

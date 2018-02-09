@@ -1,12 +1,17 @@
 {
   "access_key": "<access_key>",
   "secret_key": "<secret_key>",
-  "bucket": "static",
+  // 仓库
+  "bucket": "your_bucket",
+  // 待上传资源的源目录，相当于`7niu.json`所在的目录
   "src": "./dist/",
+  // 上传的文件列表，支持通配符，相对于 src
   "upload": [
     "./static/**",
     "favicon.ico"
   ],
-  "dest": "/<project name>/",
+  // 上传的 CDN 目录
+  "dest": "/static/",
+  // 并行上传数量，默认10
   "parallel": 10
 }

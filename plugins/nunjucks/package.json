@@ -1,0 +1,19 @@
+{
+  "name": "nunjucks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "keywords": [
+    "coolie",
+    "view"
+  ],
+  "author": "郑贤森<zhengxs423@gmail.com>",
+  "license": "MIT"
+}

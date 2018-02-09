@@ -1,0 +1,17 @@
+{
+  "title": "Boostrap",
+  "description": "The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.",
+  "tags": ["bootstrap", "grid", "typography", "buttons", "ui", "responsive-web-design"],
+  "authors": "Mark Otto, Jacob Thornton, and Bootstrap contributors",
+
+  "social_logo_path": "",
+  "social_image_path": "",
+
+  "repo": "https://github.com/twbs/bootstrap",
+  "download": {
+    "source": "https://github.com/twbs/bootstrap/archive/v4.0.0-beta.2.zip"
+  },
+  "baseurl": "http://getbootstrap.com",
+  "current_version": "4.0.0",
+  "docs_version": "4.0.0"
+}
