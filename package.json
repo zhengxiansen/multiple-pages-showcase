@@ -43,6 +43,13 @@
     "nunjucks": "^3.0.1",
     "selenium-server": "^3.9.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhengxiansen/multiple-pages-showcase"
+  },
+  "bugs": {
+    "url": "https://github.com/zhengxiansen/multiple-pages-showcase/issues"
+  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
