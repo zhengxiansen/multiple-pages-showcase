@@ -4,8 +4,8 @@
 
 ## 功能介绍
 
- - 默认支持 [nunjucks][nunjucks] 模板引擎
- - 支持 **CommonJS** 规范
+ - 默认支持 [nunjucks][nunjucks] 模板引擎，可关闭
+ - 支持 **CommonJS** 规范的文件
  - 支持 `proxyTable` 属性，详见 [http-proxy-middleware][http-proxy-middleware] 中间件文档
  - 支持七牛静态资源上传，详见 [7niu][7niu]
  - 支持阿里云 OSS，详见 [alioss][alioss]
@@ -14,7 +14,7 @@
 
 ## 目录结构
 
-```
+```text
 Project
 ├── 7niu.json         // 七牛上传插件配置文件
 ├── alioss.json       // 阿里云上传插件配置文件
@@ -29,7 +29,8 @@ Project
 ├── views/            // 视图模板文件
 ├── test/             // 单元测试
 └── static/
-    ├── css/
+    ├── brand/        // 不同尺寸的 logo 
+    ├── css/          
     ├── fonts/
     ├── img/
     ├── js/
