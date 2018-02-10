@@ -1,7 +1,7 @@
 {
   "name": "multiple-pages-showcase",
   "version": "1.0.1",
-  "private": true,
+  "private": false,
   "description": "前端多页开发模板",
   "scripts": {
     "start": "npm run dev",
@@ -39,11 +39,6 @@
     "cross-spawn": "^6.0.4",
     "http-proxy-middleware": "^0.17.4",
     "jest": "^22.2.1",
-    "karma": "^2.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coolie": "^2.0.2",
-    "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.1",
     "nightwatch": "^0.9.19",
     "nunjucks": "^3.0.1",
     "selenium-server": "^3.9.1"
