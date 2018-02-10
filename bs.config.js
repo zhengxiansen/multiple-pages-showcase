@@ -16,10 +16,9 @@ const path = require('path')
 const proxyMiddleware = require('http-proxy-middleware')
 
 const config = require('./config')
-const pkg = require('./package.json')
 
 const viewOptions = config.dev.view
-const views = viewOptions && viewOptions.root ? viewOptions.root : path.join(__dirname, '../views')
+const views = viewOptions && viewOptions.root ? viewOptions.root : path.join(__dirname, './views')
 const middlewares = []
 const proxyTable = config.dev.proxyTable
 
@@ -32,12 +31,13 @@ Object.keys(proxyTable).forEach(function (context) {
   middlewares.push(proxyMiddleware(context, options))
 })
 
+// 添加 view 中间件
 if (viewOptions) {
   middlewares.push(require('./plugins/bs-view')(viewOptions))
 }
 
 module.exports = {
-  files: views,
+  // files: views,
   server: {
     baseDir: views
   },
@@ -49,13 +49,14 @@ module.exports = {
   ],
   open: config.dev.autoOpenBrowser,
   browser: 'default',
-  plugins: [
-    {
-      module: 'bs-html-injector',
-      options: {
-        files: views
-      }
-    }
-  ],
+  // todo: 插件如何阻止 bs 的 reload？
+  // plugins: [
+  //   {
+  //     module: 'bs-html-injector',
+  //     options: {
+  //       files: views
+  //     }
+  //   }
+  // ],
   reloadDebounce: 2000
 }
