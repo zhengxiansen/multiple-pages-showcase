@@ -3,18 +3,20 @@
 const pkg = require('./package.json')
 const config = require('./config')
 
-module.exports = function (configs) {
-  const options = Object.assign({}, config, configs)
+module.exports = function (opts) {
+  const options = Object.assign({}, config, opts)
   const viewEngine = options.defaultViewEngine || null
 
-  function processMarked (options) {
-    if (options.progress === 'pre-html') {
-      options.code = viewEngine.renderString(options.code, null, {
-        file: options.file
-      })
-    }
+  function processMarked() {
+    return function (options) {
+      if (options.progress === 'pre-html') {
+        options.code = viewEngine.renderString(options.code, null, {
+          file: options.file
+        })
+      }
 
-    return options
+      return options
+    }
   }
 
   processMarked.package = pkg

@@ -13,29 +13,31 @@ if (fs.existsSync(babelrcPath) && fs.statSync(babelrcPath).isFile()) {
   Object.assign(config, JSON.parse(fs.readFileSync(babelrcPath)))
 }
 
-module.exports = function (options) {
-  const babelOptions = Object.assign({}, config, options)
+module.exports = function (opts) {
+  const babelOptions = Object.assign({}, config, opts)
 
-  function processJavaScript (options) {
-    const { progress, file, code } = options
+  function processJavaScript () {
+    return function (options) {
+      const { progress, file, code } = options
 
-    // todo: 不支持 js 的处理？
-    if (progress === 'pre-js') {
-      // 使用 babel 转码
-      const res = babel.transform(code, babelOptions)
+      // todo: 不支持 js 的处理？
+      if (progress === 'pre-js') {
+        // 使用 babel 转码
+        const res = babel.transform(code, babelOptions)
 
-      // 检查是否存在 sourceMap
-      if (res.map) {
-        // todo：这么获取当前文件的 dist 路径
-        // const sourceMappingURL = `\n//# sourceMappingURL=${path.basename(file)}.map`
-        // res.code = res.code + sourceMappingURL + '\n'
-        // fs.write(path.basename(file) + '.map', JSON.stringify(res.map))
+        // 检查是否存在 sourceMap
+        if (res.map) {
+          // todo：这么获取当前文件的 dist 路径
+          // const sourceMappingURL = `\n//# sourceMappingURL=${path.basename(file)}.map`
+          // res.code = res.code + sourceMappingURL + '\n'
+          // fs.write(path.basename(file) + '.map', JSON.stringify(res.map))
+        }
+
+        options.code = res.code
       }
 
-      options.code = res.code
+      return options
     }
-
-    return options
   }
 
   processJavaScript.package = pkg

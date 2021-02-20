@@ -19,13 +19,15 @@
     "multiple pages",
     "nunjucks"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "coolie.js": "^2.4.1"
+  },
   "devDependencies": {
     "7niu": "^3.0.0",
     "alioss": "^3.0.0",
     "babel-core": "^6.26.0",
-    "babel-jest": "^22.2.0",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
@@ -33,13 +35,12 @@
     "babel-register": "^6.26.0",
     "browser-sync": "^2.18.13",
     "bs-html-injector": "^3.0.3",
-    "chromedriver": "^2.35.0",
-    "coolie": "^2.2.5",
-    "coolie.js": "^2.2.3",
-    "cross-spawn": "^6.0.4",
-    "http-proxy-middleware": "^0.17.4",
-    "jest": "^22.2.1",
-    "nightwatch": "^0.9.19",
+    "chromedriver": "^88.0.0",
+    "coolie": "^2.7.9",
+    "cross-spawn": "^7.0.3",
+    "http-proxy-middleware": "^1.0.6",
+    "jest": "^26.6.3",
+    "nightwatch": "^1.5.1",
     "nunjucks": "^3.0.1",
     "selenium-server": "^3.9.1"
   },
